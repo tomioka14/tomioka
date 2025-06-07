@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="GIYU Store - Jasa Top Up Followers, Likes, Views, Comments untuk Instagram, TikTok, Telegram, Facebook.">
+  <meta name="keywords" content="Top Up Followers, Instagram, TikTok, GIYU Store, Sosmed Boosting, Likes, Comments, Views">
+  <meta name="author" content="GIYU Store">
+  <title>GIYU Store - Water Hashira Edition</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: 'Segoe UI', sans-serif;
+      background: url('giyu-background.png') no-repeat center center fixed;
+      background-size: cover; color: #fff;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.7); min-height: 100vh;
+      padding-bottom: 60px; position: relative;
+    }
+    header {
+      text-align: center; padding: 40px 20px 10px;
+    }
+    header img.logo {
+      width: 140px; margin-bottom: 10px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a img {
+      height: 26px; margin: 0 8px; opacity: 0.85;
+      transition: transform 0.2s ease;
+    }
+    nav a img:hover {
+      transform: scale(1.15);
+    }
+    .section {
+      max-width: 800px; margin: 40px auto; padding: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    h2 { text-align: center; color: #00d4ff; margin-bottom: 20px; }
+    ul { list-style: none; padding: 0; }
+    li {
+      background: rgba(0,0,0,0.3); margin: 10px 0;
+      padding: 14px; border-radius: 8px;
+    }
+    label, input, select {
+      display: block; width: 100%; margin-bottom: 15px;
+    }
+    input, select {
+      padding: 10px; border-radius: 8px; border: none;
+    }
+    button {
+      background: #00aaff; color: white;
+      padding: 14px 28px; border: none; border-radius: 10px;
+      cursor: pointer; font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #00c8ff;
+    }
+    .cta {
+      text-align: center; margin-top: 40px;
+    }
+    footer {
+      text-align: center; margin: 40px 0 10px;
+      font-size: 13px; color: #aaa;
+    }
+  </style>
+</head>
+<body>
+<audio id="bgm" src="giyu-theme.mp3" autoplay loop></audio>
+
+<div class="overlay">
+  <header data-aos="fade-down">
+    <img src="giyu-logo-merah.png" alt="GIYU Logo" class="logo">
+    <h1>GIYU STORE</h1>
+    <nav>
+      <a href="#"><img src="instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="telegram.png" alt="Telegram"></a>
+      <a href="#"><img src="tiktok.png" alt="TikTok"></a>
+      <a href="#"><img src="facebook.png" alt="Facebook"></a>
+    </nav>
+  </header>
+
+  <div class="section" data-aos="zoom-in">
+    <h2>🔥 Harga Followers</h2>
+    <ul>
+      <li>✅ 500 Followers ➡️ Rp 27.000</li>
+      <li>✅ 1000 Followers ➡️ Rp 54.000</li>
+      <li>✅ 2000 Followers ➡️ Rp 108.000</li>
+      <li>✅ 5000 Followers ➡️ Rp 270.000</li>
+      <li>✅ 10.000 Followers ➡️ Rp 540.000</li>
+    </ul>
+  </div>
+
+  <div class="section" data-aos="fade-up">
+    <h2>🛒 Form Pemesanan Custom</h2>
+    <form id="orderForm">
+      <label>Platform:</label>
+      <select id="platform">
+        <option>Instagram</option>
+        <option>TikTok</option>
+        <option>Telegram</option>
+        <option>Facebook</option>
+      </select>
+
+      <label>Layanan:</label>
+      <select id="service">
+        <option>Followers</option>
+        <option>Likes</option>
+        <option>Views</option>
+        <option>Comments</option>
+        <option>Members</option>
+      </select>
+
+      <label>Paket:</label>
+      <select id="package">
+        <option>500</option>
+        <option>1000</option>
+        <option>2000</option>
+        <option>5000</option>
+        <option>10000</option>
+      </select>
+
+      <label>Username / Link Akun:</label>
+      <input type="text" id="username" required placeholder="@username/link">
+
+      <label>Nomor WhatsApp:</label>
+      <input type="text" id="whatsapp" required placeholder="08xxxxxxxxxx">
+
+      <button type="button" onclick="submitOrder()">Kirim via WhatsApp</button>
+    
+<br>
+<button type="button" onclick="submitTelegram()" style="background:#0088cc;margin-top:10px;">Kirim via Telegram</button>
+
+</form>
+  </div>
+
+  <footer data-aos="fade-up">
+    &copy; 2025 GIYU STORE • Powered by Water Breathing ⚔️
+  </footer>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+function submitTelegram() {
+  const p = document.getElementById('platform').value;
+  const s = document.getElementById('service').value;
+  const pack = document.getElementById('package').value;
+  const user = document.getElementById('username').value;
+  const wa = document.getElementById('whatsapp').value;
+
+  const msg = `Halo, saya ingin pesan:\nPlatform: ${p}\nLayanan: ${s}\nPaket: ${pack}\nUsername: ${user}\nKontak: ${wa}`;
+  const url = `https://t.me/gaxshaa?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+</script>
+<script>AOS.init();
+function submitTelegram() {
+  const p = document.getElementById('platform').value;
+  const s = document.getElementById('service').value;
+  const pack = document.getElementById('package').value;
+  const user = document.getElementById('username').value;
+  const wa = document.getElementById('whatsapp').value;
+
+  const msg = `Halo, saya ingin pesan:\nPlatform: ${p}\nLayanan: ${s}\nPaket: ${pack}\nUsername: ${user}\nKontak: ${wa}`;
+  const url = `https://t.me/gaxshaa?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+</script>
+
+<script>
+function submitOrder() {
+  const p = document.getElementById('platform').value;
+  const s = document.getElementById('service').value;
+  const pack = document.getElementById('package').value;
+  const user = document.getElementById('username').value;
+  const wa = document.getElementById('whatsapp').value;
+
+  const msg = `Halo, saya ingin pesan:%0APlatform: ${p}%0ALayanan: ${s}%0APaket: ${pack}%0AUsername: ${user}%0AKontak: ${wa}`;
+  const url = `https://wa.me/6283138846539?text=${msg}`;
+  window.open(url, '_blank');
+}
+
+function submitTelegram() {
+  const p = document.getElementById('platform').value;
+  const s = document.getElementById('service').value;
+  const pack = document.getElementById('package').value;
+  const user = document.getElementById('username').value;
+  const wa = document.getElementById('whatsapp').value;
+
+  const msg = `Halo, saya ingin pesan:\nPlatform: ${p}\nLayanan: ${s}\nPaket: ${pack}\nUsername: ${user}\nKontak: ${wa}`;
+  const url = `https://t.me/gaxshaa?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+</script>
+</body>
+</html>

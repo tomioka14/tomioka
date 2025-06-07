@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - GIYU STORE</title>
+  <style>
+    body {
+      background: #0e0e0e; color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    header {
+      display: flex; align-items: center;
+      gap: 20px; margin-bottom: 30px;
+    }
+    img.logo {
+      width: 60px;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: #1c1c1c;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #333;
+    }
+    th { background: #00d4ff33; }
+    button {
+      margin-top: 20px; padding: 10px 20px;
+      border: none; border-radius: 8px;
+      background: #00d4ff; font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="giyu-logo-merah.png" class="logo" alt="logo" />
+    <h2>Admin Dashboard</h2>
+  </header>
+
+  <table id="orderTable">
+    <thead>
+      <tr><th>Platform</th><th>Layanan</th><th>Paket</th><th>Username</th><th>Kontak</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <button onclick="exportData()">Export ke CSV</button>
+
+  <script>
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const tbody = document.querySelector('#orderTable tbody');
+
+    orders.forEach(o => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${o.platform}</td><td>${o.service}</td><td>${o.package}</td><td>${o.username}</td><td>${o.contact}</td>`;
+      tbody.appendChild(row);
+    });
+
+    function exportData() {
+      let csv = 'Platform,Layanan,Paket,Username,Kontak\n';
+      orders.forEach(o => {
+        csv += `${o.platform},${o.service},${o.package},${o.username},${o.contact}\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'data_pesanan_giyu.csv';
+      a.click();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Admin - GIYU STORE</title>
+  <style>
+    body {
+      background: #0b0c10;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      height: 100vh; margin: 0;
+    }
+    .login-box {
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00d4ff88;
+      text-align: center;
+    }
+    img.logo {
+      width: 120px; margin-bottom: 20px;
+    }
+    input {
+      width: 100%; padding: 10px;
+      margin-bottom: 15px; border-radius: 8px; border: none;
+    }
+    button {
+      padding: 12px 25px;
+      background: #00d4ff; color: black;
+      font-weight: bold; border: none;
+      border-radius: 8px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <img src="giyu-logo-merah.png" alt="Logo" class="logo">
+    <h2>Admin Panel</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+  </div>
+  <script>
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if(user === "admin" && pass === "giyu123") {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Login gagal. Coba lagi.");
+      }
+    }
+  </script>
+</body>
+</html>
